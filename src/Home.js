@@ -59,9 +59,8 @@ export default class Home extends Component {
         const neg = document.getElementById('minus');
         if(!d){ neg.innerHTML = 'add'; neg.id = 'plus'; c.classList.add('hidden');}
         else{ d.innerHTML = 'remove'; d.id ='minus'; c.classList.remove('hidden');}
-        
-
     }
+    
 componentDidMount() {
     this.db.collection('users').doc(this.uid).get().then((docRef)=>this.setState(docRef.data())).then(console.log(this.state));
 }
