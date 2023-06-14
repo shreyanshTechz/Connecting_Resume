@@ -16,7 +16,7 @@ export default class step4 extends Component {
   setImageUpload = (x) => {
 
     this.setState({ resume: x.name });
-    const imageref = ref(storage, `doc/${x.name}`);
+    const imageref = ref(storage, `images/${x.name}`);
     uploadBytes(imageref, x).then((snapshot) => {
       getDownloadURL(snapshot.ref).then((url) => {
         x = "https://firebasestorage.googleapis.com/v0/b/blog-ac849.appspot.com/o/images%2F"+ x.name + "?alt=media&token=77ed2eab-f1b7-491a-bc65-3f8ec826957b";
