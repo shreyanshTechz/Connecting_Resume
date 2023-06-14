@@ -12,7 +12,7 @@ export default class step4 extends Component {
   images = '';
   var = idea;
   db = firebase.firestore();
-  imageListref = ref(storage, "doc/");
+  imageListref = ref(storage, "images/");
   setImageUpload = (x) => {
 
     this.setState({ resume: x.name });
