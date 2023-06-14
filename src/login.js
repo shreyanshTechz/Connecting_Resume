@@ -49,8 +49,8 @@ function Login() {
     // console.log(auth.lastNotifiedUid);
     useEffect(()=>{
         // // console.log(auth.email);
-        setname(localStorage.getItem('uid'))
-        setValue(localStorage.getItem('email'))
+        // setname(localStorage.getItem('uid'))
+        // setValue(localStorage.getItem('email'))
     },[])
     return (
         <div className="main">

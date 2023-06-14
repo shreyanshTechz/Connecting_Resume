@@ -39,6 +39,7 @@ function SignIn() {
     }
     const handleChange3 = (e) => {
         setname(e.target.value);
+        console.log(name);
     }
     const handleChange2 = (e) => {
         setuserpass(e.target.value);
@@ -64,8 +65,8 @@ function SignIn() {
     console.log(auth.lastNotifiedUid);
     useEffect(()=>{
         // console.log(auth.email);
-        setname(localStorage.getItem('uid'))
-        setValue(localStorage.getItem('email'))
+        // setname(localStorage.getItem('uid'))
+        // setValue(localStorage.getItem('email'))
     })
     return (
 

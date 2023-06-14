@@ -2,11 +2,11 @@ import React from 'react'
 import firebase from '../fbconfig2'
 export default function Navbar() {
   function signout() {
-    firebase.auth().signOut().then(function() {
-      localStorage.setItem("email", '')
-                localStorage.setItem("uid",'')
-    }).catch(function(error) {
-    });  
+    // firebase.auth().signOut().then(function() {
+    //   localStorage.setItem("email", '')
+    //             localStorage.setItem("uid",'')
+    // }).catch(function(error) {
+    // });  
   }
   
 
