@@ -56,7 +56,7 @@ function Login() {
     return (
         <div className="main">
             <Navbar/>
-            {value!=='out' ? <Home ans={name} /> :
+            {value!=='out' & value!=='' ? <Home ans={name} /> :
                 <div className="loginpage">
                     <div className="row">
                         <img className="col s4" style={{ height: "60px" }} src={logo} alt="" srcset="" />
