@@ -24,7 +24,7 @@ export default function Navbar() {
   <a href="#!" class="brand-logo right"><h5 style={{ color: "Red", display: "flex", fontFamily: "monospace" }}>TIN
                             <p style={{ color: "white" }}>DEV</p>
                         </h5></a>
-                        {uid!=='out'?
+                        {uid!=='out' & uid!==''?
   <ul class="left">
     <li><a href="badges.html"><i class="material-icons">edit</i></a></li>
     <li><a href="collapsible.html"><i class="material-icons">notifications</i></a></li>

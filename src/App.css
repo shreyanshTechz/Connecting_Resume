@@ -1003,6 +1003,9 @@ section {
   width: 100vw;
 
 }
+.firstcol{
+  width:40vw;
+}
 .secondcol{
   width: 40vw;
   margin: auto;
@@ -1032,6 +1035,9 @@ section {
   }
   .main-title h2 .bg-text {
     font-size: 4rem;
+  }
+  .firstcol{
+    width:80vw;
   }
   .secondcol{
     width: 80vw;
