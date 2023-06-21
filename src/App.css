@@ -986,6 +986,27 @@ section {
     padding-top: 3rem;
   }
 }
+
+.main{
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+}
+.loginpage{
+  margin-top: 50px;
+}
+.login-box{
+  
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+
+}
+.secondcol{
+  width: 40vw;
+  margin: auto;
+}
 @media screen and (max-width: 700px) {
   .container {
     padding: 7rem 3rem;
@@ -1012,15 +1033,13 @@ section {
   .main-title h2 .bg-text {
     font-size: 4rem;
   }
+  .secondcol{
+    width: 80vw;
+    margin: auto;
+  }
+  
+  .login-box{
+    flex-direction: column-reverse;
+  }
 }
-.main{
-  width: 100vw;
-  display: flex;
-  flex-direction: column;
-  /* align-items: center; */
-}
-.loginpage{
-  margin-top: 50px;
-}
-
 /*# sourceMappingURL=styles.css.map */

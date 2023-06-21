@@ -86,7 +86,7 @@ componentDidMount() {
                A Developer.
            </h1>
            <div class="btn-con">
-               <a onClick={this.click} rel='noreferrer' download="proposed_file_name" class="main-btn" style={{color:'black'}}>
+           <a href={this.state.resume} target='_blank' rel='noreferrer'  download={this.state.name} class="main-btn" style={{color:'black'}}>
                    <span class="btn-text" >Download CV</span>
                    
                    <span class="btn-icon"><i class="fas fa-download"></i></span>
@@ -105,7 +105,7 @@ componentDidMount() {
                        {this.state.about}
                     </p>
                     <div class="btn-con">
-                    <a href={this.state.resume} target='_blank' rel='noreferrer' download="proposed_file_name" class="main-btn" style={{color:'black'}}>
+                    <a href={this.state.resume} target='_blank' rel='noreferrer' download={this.state.name} class="main-btn" style={{color:'black'}}>
                    <span class="btn-text white-text" >Download CV</span>
                    
                    <span class="btn-icon"><i class="fas fa-download"></i></span>

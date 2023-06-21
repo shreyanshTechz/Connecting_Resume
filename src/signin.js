@@ -77,16 +77,16 @@ function SignIn() {
                 <img className="col " style={{ height: "60px" }} src={x} alt="" srcset="" />
                 <img className="col" style={{ height: "60px" }} src={idea} alt="" srcset="" />
             </div>
-            <div class="row">
+            <div class="row login-box">
 
-                <div class="col s3">
+                <div class="firstcol">
                     <img class="container" src={login} alt="" srcset="" />
                     <h2 style={{ color: "blue", display: "flex", fontFamily: "monospace" }}>TIN
                         <h2 style={{ color: "black" }}>DEV</h2>
                     </h2>
                 </div>
 
-                <div class="col s9">
+                <div class="secondcol">
                     {value ? <Step1 ans={name} /> : <div>
                         <div className='container login'>
                             <form onSubmit={handleSubmit} className="white">

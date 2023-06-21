@@ -12,15 +12,16 @@ export default class step4 extends Component {
   images = '';
   var = idea;
   db = firebase.firestore();
+  
   imageListref = ref(storage, "images/");
   setImageUpload = (x) => {
 
-    this.setState({ resume: x.name });
+    this.setState({ resume: "https://firebasestorage.googleapis.com/v0/b/blog-ac849.appspot.com/o/images%2F"+ x.name + "?alt=media&token=77ed2eab-f1b7-491a-bc65-3f8ec826957b" });
     const imageref = ref(storage, `images/${x.name}`);
     uploadBytes(imageref, x).then((snapshot) => {
       getDownloadURL(snapshot.ref).then((url) => {
-        x = "https://firebasestorage.googleapis.com/v0/b/blog-ac849.appspot.com/o/images%2F"+ x.name + "?alt=media&token=77ed2eab-f1b7-491a-bc65-3f8ec826957b";
-        this.setState({ comp1: '', resume: x.name });
+      //  const r = "https://firebasestorage.googleapis.com/v0/b/blog-ac849.appspot.com/o/images%2F"+ x.name + "?alt=media&token=77ed2eab-f1b7-491a-bc65-3f8ec826957b";
+        // this.setState({ comp1: '', resume: r });
         this.var = tick;
         console.log(x.name);
         console.log(this.state);
@@ -61,7 +62,7 @@ export default class step4 extends Component {
                 </div>
               </div>
               {/* <div className="div"><img style={{width:"20px"}} src={logo} alt="" srcset="" /></div> */}
-              <Link to='home'><i id='aj' style={{ display: 'none', cursor: "pointer" }} class="black-text small material-icons right">arrow-forward</i></Link>
+              <Link to='/'><i id='aj' style={{ display: 'none', cursor: "pointer" }} class="black-text small material-icons right">arrow-forward</i></Link>
               
             </form>
           </div> : <Home ans={this.props.uid} />}

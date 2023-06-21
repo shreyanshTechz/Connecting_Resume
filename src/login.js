@@ -11,20 +11,17 @@ import { Link } from "react-router-dom";
 import firebase from './fbconfig2'
 import Navbar from "./components/navbar";
 function Login() {
-    const [value, setValue] = useState(undefined);
+    const [value, setValue] = useState('out');
     const [name, setname] = useState('');
     const [info, setusermail] = useState('');
-    // const [name,setusername] = useState('');
     const [pass, setuserpass] = useState('');
     const db = firebase.firestore();
     const handleClick = (e) => {
         e.preventDefault();
         signInWithPopup(auth, provider).then((data) => {
             setname(data.user.uid)
-            localStorage.setItem("email", data.user.email)
-            localStorage.setItem("uid", data.user.uid)
-            console.log(data.user.uid);;
-            db.collection('users').doc(data.user.uid).get().then((docRef)=>{if(docRef.data()!==undefined) setValue(docRef.data()); else alert('You are Not Sign In')});
+            db.collection('users').doc(data.user.uid).get().then((docRef)=>{if(docRef.data()!==undefined){localStorage.setItem("email", data.user.email);
+            localStorage.setItem("uid", data.user.uid); setValue(docRef.data());} else alert('You are Not Sign In')});
 
         }).catch((error) => {
             alert(error);
@@ -52,13 +49,14 @@ function Login() {
             });
     }
     useEffect(()=>{
-        // setname(localStorage.getItem('uid'))
-        // setValue(localStorage.getItem('email'))
+        console.log(localStorage.getItem('email'));
+        setname(localStorage.getItem('uid'))
+        setValue(localStorage.getItem('email'))
     },[])
     return (
         <div className="main">
             <Navbar/>
-            {value!==undefined ? <Home ans={name} /> :
+            {value!=='out' ? <Home ans={name} /> :
                 <div className="loginpage">
                     <div className="row">
                         <img className="col s4" style={{ height: "60px" }} src={logo} alt="" srcset="" />
@@ -66,21 +64,21 @@ function Login() {
                         <img className="col" style={{ height: "60px" }} src={idea} alt="" srcset="" />
                     </div>
 
-                    <div class="row">
+                    <div class="row login-box">
 
-                        <div class="col s3">
+                        <div class="firstcol">
                             <img class="container" src={Setting} alt="" srcset="" />
                             <h2 style={{ color: "blue", display: "flex", fontFamily: "monospace" }}>TIN
-                                <h2 style={{ color: "black" }}>DEV</h2>
+                                <p style={{ color: "black" }}>DEV</p>
                             </h2>
                         </div>
 
 
-                        <div class="col s9">
+                        <div class="secondcol">
 
 
                             <div>
-                                <div className='container login'>
+                                <div className='login'>
                                     <form onSubmit={handleSubmit}>
                                         <h5 className="black-text text-darken-7">Login to TinDev Account</h5>
                                         <br></br>
