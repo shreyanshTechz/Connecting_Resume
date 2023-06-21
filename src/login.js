@@ -8,20 +8,24 @@ import logo from "./logo.svg"
 import idea from "./images/idea.gif"
 import x from "./images/x.gif"
 import { Link } from "react-router-dom";
+import firebase from './fbconfig2'
 import Navbar from "./components/navbar";
 function Login() {
-    const [value, setValue] = useState('');
+    const [value, setValue] = useState(undefined);
     const [name, setname] = useState('');
     const [info, setusermail] = useState('');
     // const [name,setusername] = useState('');
     const [pass, setuserpass] = useState('');
+    const db = firebase.firestore();
     const handleClick = (e) => {
         e.preventDefault();
         signInWithPopup(auth, provider).then((data) => {
-            setValue(data.user.email)
             setname(data.user.uid)
             localStorage.setItem("email", data.user.email)
             localStorage.setItem("uid", data.user.uid)
+            console.log(data.user.uid);;
+            db.collection('users').doc(data.user.uid).get().then((docRef)=>{if(docRef.data()!==undefined) setValue(docRef.data()); else alert('You are Not Sign In')});
+
         }).catch((error) => {
             alert(error);
         });
@@ -42,20 +46,19 @@ function Login() {
                 setname(data.user.uid)
                 localStorage.setItem("email", data.user.email)
                 localStorage.setItem("uid", data.user.uid)
+                
             }).catch((error) => {
                 alert(error);
             });
     }
-    // console.log(auth.lastNotifiedUid);
     useEffect(()=>{
-        // // console.log(auth.email);
-        setname(localStorage.getItem('uid'))
-        setValue(localStorage.getItem('email'))
+        // setname(localStorage.getItem('uid'))
+        // setValue(localStorage.getItem('email'))
     },[])
     return (
         <div className="main">
             <Navbar/>
-            {value ? <Home ans={name} /> :
+            {value!==undefined ? <Home ans={name} /> :
                 <div className="loginpage">
                     <div className="row">
                         <img className="col s4" style={{ height: "60px" }} src={logo} alt="" srcset="" />

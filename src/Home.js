@@ -7,7 +7,7 @@ import { getStorage } from "firebase/storage";
 import '@react-pdf-viewer/core/lib/styles/index.css';
 
 export default class Home extends Component {
-  state = {name:'',email:'',image:'',techno:[],role:'',desc:'',start:'',end:''}
+  state = {name:'',email:'-',image:'',techno:[],role:'',desc:'',start:'',end:''}
   project = {start:'',end:'',role:'',desc:''}
   value = 1;
   keys = [];
@@ -63,10 +63,12 @@ export default class Home extends Component {
     
 componentDidMount() {
     this.db.collection('users').doc(this.uid).get().then((docRef)=>this.setState(docRef.data())).then(console.log(this.state));
+
 }
   
   render() {
     return (
+        
       <>
        <div className="dic">
        <section class="header-content">
